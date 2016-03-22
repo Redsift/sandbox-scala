@@ -1,0 +1,18 @@
+{
+  "dag": {
+    "nodes":[
+		{
+			"#": "Test Node 1",
+			"implementation": {
+				"scala": "server/Node1.scala"
+			}
+		},
+		{
+			"#": "Test Node 2",
+			"implementation": {
+				"scala": "server/Node2.scala"
+			}
+		}
+	]
+  }
+}
