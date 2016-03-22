@@ -10,7 +10,7 @@
 		{
 			"#": "Test Node 2",
 			"implementation": {
-				"scala": "server/Node2.scala"
+				"scala": "server/Node2.scala;Node2"
 			}
 		}
 	]
