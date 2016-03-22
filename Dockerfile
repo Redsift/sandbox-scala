@@ -3,7 +3,6 @@ MAINTAINER Deepak Prabhakara email: deepak@redsift.io version: 1.1.101
 
 ARG version=2.11.8
 
-# Install JDK without things like fuse
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y wget && \

@@ -13,7 +13,7 @@ dependencies:
     - docker info
     - |
       set -e
-      for SV in SCALA_VERSIONS
+      for SV in $SCALA_VERSIONS
       do
         docker build --build-arg version=$SV -t $SV .
       done
@@ -22,7 +22,7 @@ test:
   override:
     - |
       set -e
-      for SV in SCALA_VERSIONS
+      for SV in $SCALA_VERSIONS
       do
         INIT=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.dagger.init\" }}" $SV)
         echo "Calling init = $INIT"
@@ -41,7 +41,7 @@ deployment:
       - docker login -e $QUAY_EMAIL -u $QUAY_USER -p $QUAY_PASS quay.io
       - | 
         set -e
-        for SV in SCALA_VERSIONS
+        for SV in $SCALA_VERSIONS
         do
           SCALA_VERSION=$(docker run -t --entrypoint=/usr/bin/scala $SV -version 2>&1 | cut -s -d '"' -f2)
           VERSION_ARRAY=(${SCALA_VERSION//_/ })
