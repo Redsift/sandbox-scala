@@ -10,7 +10,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir /tmp/scala && cd /tmp/scala && \
     wget http://www.scala-lang.org/files/archive/scala-$version.deb && \
-    wget http://dl.bintray.com/sbt/debian/sbt-0.13.6.deb && \
+    wget http://dl.bintray.com/sbt/debian/sbt-0.13.9.deb && \
     dpkg -i scala-$version.deb && \
     dpkg -i sbt-0.13.9.deb && \
     apt-get update && \
@@ -23,7 +23,5 @@ COPY root /
 VOLUME /run/dagger/sift
 
 WORKDIR /run/dagger/sift
-
-RUN which scala
 
 ENTRYPOINT ["/bin/bash"]
