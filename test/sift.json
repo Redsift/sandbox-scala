@@ -12,7 +12,13 @@
 			"implementation": {
 				"scala": "server/Node2.scala;Node2"
 			}
-		}
+		},
+        {
+            "#": "Test Sbt Node 1",
+            "implementation": {
+                "scala": "server/sbtnode/src/main/scala/com/redsift/SbtNode1.scala"
+            }
+        }
 	]
   }
 }
