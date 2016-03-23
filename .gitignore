@@ -2,4 +2,4 @@ test/server/classes
 .idea/*
 **.class
 **.jar
-
+target/
