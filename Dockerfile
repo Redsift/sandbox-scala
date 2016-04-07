@@ -19,8 +19,4 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 
 COPY root /
 
-VOLUME /run/dagger/sift
-
-WORKDIR /run/dagger/sift
-
 ENTRYPOINT ["/bin/bash"]
