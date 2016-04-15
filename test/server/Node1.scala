@@ -1,5 +1,5 @@
-import com.redsift.ComputeRequest;
-import com.redsift.ComputeResponse;
+import io.redsift.ComputeRequest;
+import io.redsift.ComputeResponse;
 
 package server {
     object Node1 {

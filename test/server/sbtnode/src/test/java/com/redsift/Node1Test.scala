@@ -1,4 +1,4 @@
-package com.redsift;
+package io.redsift;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

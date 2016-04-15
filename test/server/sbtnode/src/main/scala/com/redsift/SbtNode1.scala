@@ -1,7 +1,7 @@
-import com.redsift.ComputeRequest;
-import com.redsift.ComputeResponse;
+import io.redsift.ComputeRequest;
+import io.redsift.ComputeResponse;
 
-package com.redsift {
+package io.redsift {
     object SbtNode1 {
         def compute(req: ComputeRequest): ComputeResponse = {
             println("SbtNode1.scala: " + req.toString());
