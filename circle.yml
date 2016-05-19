@@ -17,7 +17,7 @@ dependencies:
       do
         docker build --build-arg version=$SV -t $SV .
       done
-      
+
 test:
   override:
     - |
@@ -25,22 +25,22 @@ test:
       for SV in $SCALA_VERSIONS
       do
         docker run -t --entrypoint=/usr/bin/scala $SV -version
-        INIT=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.dagger.init\" }}" $SV)
+        INIT=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.sandbox.install\" }}" $SV)
         echo "Calling init = $INIT"
         docker run -v $PWD/test:/run/dagger/sift $SV $INIT 0 1
         ls -A $PWD/test/server/classes || true
-        RUN=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.dagger.run\" }}" $SV)
+        RUN=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.sandbox.run\" }}" $SV)
         echo "Calling run = $RUN"
         docker run -v $PWD/test:/run/dagger/sift -e DRY=true $SV $RUN 0 1
         sudo rm -Rf $PWD/test/server/classes || true
       done
-  
+
 deployment:
   production:
-    branch: master  
+    branch: master
     commands:
       - docker login -e $QUAY_EMAIL -u $QUAY_USER -p $QUAY_PASS quay.io
-      - | 
+      - |
         set -e
         for SV in $SCALA_VERSIONS
         do
