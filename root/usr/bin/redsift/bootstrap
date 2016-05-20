@@ -1,3 +1,0 @@
-#!/bin/bash
-
-/usr/bin/scala -cp /usr/bin/redsift/sandbox.jar io.redsift.Run $@

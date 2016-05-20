@@ -25,11 +25,11 @@ test:
       for SV in $SCALA_VERSIONS
       do
         docker run -t --entrypoint=/usr/bin/scala $SV -version
-        INIT=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.sandbox.install\" }}" $SV)
+        INIT=$(docker inspect -f "{{index .Config.Labels \"io.redsift.sandbox.install\" }}" $SV)
         echo "Calling init = $INIT"
         docker run -v $PWD/test:/run/sandbox/sift $SV $INIT 0 1
         ls -A $PWD/test/server/classes || true
-        RUN=$(docker inspect -f "{{index .ContainerConfig.Labels \"io.redsift.sandbox.run\" }}" $SV)
+        RUN=$(docker inspect -f "{{index .Config.Labels \"io.redsift.sandbox.run\" }}" $SV)
         echo "Calling run = $RUN"
         docker run -v $PWD/test:/run/sandbox/sift -e DRY=true $SV $RUN 0 1
         sudo rm -Rf $PWD/test/server/classes || true
