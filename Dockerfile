@@ -13,7 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     dpkg -i scala-$version.deb && \
     dpkg -i sbt-0.13.9.deb && \
     apt-get update && \
-    apt-get install scala sbt && \
+    apt-get install -y scala sbt && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm -rf /tmp/scala
 
