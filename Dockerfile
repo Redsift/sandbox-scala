@@ -6,7 +6,6 @@ ARG version=2.11.8
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y wget && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir /tmp/scala && cd /tmp/scala && \
     wget http://www.scala-lang.org/files/archive/scala-$version.deb && \
     wget http://dl.bintray.com/sbt/debian/sbt-0.13.9.deb && \
@@ -14,7 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     dpkg -i sbt-0.13.9.deb && \
     apt-get update && \
     apt-get install -y scala sbt && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get purge -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm -rf /tmp/scala
 
 COPY root /
