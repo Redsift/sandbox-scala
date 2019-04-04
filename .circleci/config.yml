@@ -46,6 +46,7 @@ jobs:
     steps:
       - v_build:
           sv: "2.12.8"
+          islatest: true
 
 workflows:
   version: 2.1
