@@ -1,7 +1,7 @@
 FROM quay.io/redsift/sandbox-java:v1.8.0
 MAINTAINER Deepak Prabhakara email: deepak@redsift.io version: 1.1.101
 
-ARG version=2.11.8
+ARG version=2.11.12
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
