@@ -3,7 +3,7 @@ version: 2.1
 default:
   environment: &envvars
     CONTAINER_NAME: quay.io/redsift/sandbox-scala
-    JAVA_BASE_VERSION: 1.8
+    JAVA_BASE_VERSION: 1.8.0
 executors:
   dockexec:
     shell: /bin/bash
