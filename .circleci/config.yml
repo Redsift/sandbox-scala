@@ -39,7 +39,7 @@ jobs:
       - v_build:
           sv: "2.11.12"
 
-  build_2.12:
+  build_2-12:
     executor: dockexec
     steps:
       - v_build:
@@ -50,4 +50,4 @@ workflows:
   build-and-deploy:
     jobs:
       - build_default
-      - build_2.12
+      - build_2-12
